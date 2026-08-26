@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream text-ink-800 font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500/30 disabled:opacity-60 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-white shadow-soft hover:bg-brand-600 hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-ghost {
+    @apply btn bg-white text-ink-800 ring-1 ring-ink-200 hover:ring-brand-300 hover:text-brand-600 hover:-translate-y-0.5;
+  }
+  .btn-dark {
+    @apply btn bg-ink-900 text-white hover:bg-ink-800 hover:-translate-y-0.5;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300;
+  }
+  .card {
+    @apply bg-white rounded-3xl shadow-card overflow-hidden transition-all duration-500;
+  }
+  .input {
+    @apply w-full rounded-2xl border border-ink-200 bg-white px-4 py-3 text-sm text-ink-800 placeholder-ink-400 transition-all duration-300 focus:border-brand-400 focus:outline-none focus:ring-4 focus:ring-brand-500/15;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-semibold text-ink-700;
+  }
+  .section {
+    @apply mx-auto max-w-7xl px-5 sm:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-700;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
